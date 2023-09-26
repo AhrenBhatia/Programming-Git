@@ -10,12 +10,12 @@ import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class blob {
+    public static StringBuilder contains = new StringBuilder();
 
     public static String blobFile(String inputFile) throws IOException {
         try {
             File file = new File(inputFile);
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            StringBuilder contains = new StringBuilder();
             while (reader.ready()) {
                 contains.append(reader.read());
             }
@@ -30,6 +30,12 @@ public class blob {
             return null;
         }
     }
+
+    public static String fileContents ()
+    {
+        return contains.toString();
+    }
+    
 
     public static void shaFile(String hashed, StringBuilder contains) {
         try {
