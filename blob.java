@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
-public class blob {
+public class Blob {
     public static StringBuilder contains = new StringBuilder();
 
     public static String blobFile(String inputFile) throws IOException {
@@ -31,11 +31,9 @@ public class blob {
         }
     }
 
-    public static String fileContents ()
-    {
+    public static String fileContents() {
         return contains.toString();
     }
-    
 
     public static void shaFile(String hashed, StringBuilder contains) {
         try {
@@ -66,15 +64,6 @@ public class blob {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
-        }
-    }
-
-    public static void main(String[] args) {
-        try {
-            String file = "tester.txt";
-            blobFile(file);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

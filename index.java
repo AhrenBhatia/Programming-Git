@@ -8,7 +8,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 
-public class index extends blob {
+public class Index extends Blob {
 
     public static HashMap<String, String> files = new HashMap<>();
 
