@@ -24,7 +24,7 @@ public class Index extends Blob {
             }
         }
 
-        File file = new File("Git");
+        File file = new File("Git.txt");
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -39,7 +39,7 @@ public class Index extends Blob {
             String hashName = blobFile(fileName);
             files.put(fileName, hashName);
 
-            Path index = Paths.get("Git");
+            Path index = Paths.get("Git.txt");
             try (BufferedWriter bw = Files.newBufferedWriter(index, StandardOpenOption.CREATE,
                     StandardOpenOption.WRITE)) {
                 for (Map.Entry<String, String> entry : files.entrySet()) {
@@ -55,7 +55,7 @@ public class Index extends Blob {
     public static void remove(String fileName) throws IOException {
         try {
             files.remove(fileName);
-            Path index = Paths.get("./objects/index");
+            Path index = Paths.get("Git.txt");
             try (BufferedWriter clear = Files.newBufferedWriter(index, StandardOpenOption.TRUNCATE_EXISTING)) {
             } catch (IOException e) {
                 e.printStackTrace();
@@ -63,8 +63,8 @@ public class Index extends Blob {
 
             try (BufferedWriter write = Files.newBufferedWriter(index, StandardOpenOption.CREATE,
                     StandardOpenOption.WRITE)) {
-                for (Map.Entry<String, String> entry : files.entrySet()) {
-                    write.write(entry.getKey() + " : " + entry.getValue());
+                for (Map.Entry<String, String> file : files.entrySet()) {
+                    write.write(file.getKey() + " : " + file.getValue());
                     write.newLine();
                 }
             }

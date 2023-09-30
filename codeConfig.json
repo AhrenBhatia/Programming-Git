@@ -1,12 +1,6 @@
 [
     {
         "className": "Index",
-        "constructorConfigs": [
-            {
-                "parameterTypes": [],
-                "values": []
-            }
-        ],
         "methodConfigs": [
             {
                 "methodName": "init",
@@ -35,21 +29,38 @@
     },
     {
         "className": "Blob",
-        "constructorConfigs": [
+        "methodConfigs": [
             {
-                "parameterTypes": [
+                "methodName": "blobFile",
+                "parameters": [
                     "String"
                 ],
                 "values": [
-                    "__TEST_FILE_NAME__"
+                    "inputFile"
                 ]
-            }
-        ],
-        "methodConfigs": [
+            },
             {
-                "methodName": "getSha1",
+                "methodName": "fileContents",
                 "parameters": [],
                 "values": []
+            },
+            {
+                "methodName": "shaFile",
+                "parameters": [
+                    "String"
+                ],
+                "values": [
+                    "inputFile"
+                ]
+            },
+            {
+                "methodName": "hashStringToSHA1",
+                "parameters": [
+                    "String"
+                ],
+                "values": [
+                    "input"
+                ]
             }
         ]
     }
