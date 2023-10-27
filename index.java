@@ -36,7 +36,7 @@ public class Index extends Blob {
 
     public static void add(String fileName) throws IOException {
         try {
-            String hashName = blobFile(fileName);
+            String hashName = Blob(fileName);
             files.put(fileName, hashName);
 
             Path index = Paths.get("Git.txt");

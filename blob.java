@@ -9,7 +9,9 @@ import java.security.NoSuchAlgorithmException;
 public class Blob {
     public static StringBuilder contains = new StringBuilder();
 
-    public static String blobFile(String inputFile) throws IOException {
+    String sha = "";
+
+    public Blob(String inputFile) throws IOException {
         try {
             File file = new File(inputFile);
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -20,11 +22,10 @@ public class Blob {
             String hashed = hashStringToSHA1(contains.toString());
             shaFile(hashed, contains);
 
-            return hashed;
+            sha = hashed;
 
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }
     }
 
@@ -32,7 +33,7 @@ public class Blob {
         return contains.toString();
     }
 
-    public static void shaFile(String hashed, StringBuilder contains) {
+    public static String shaFile(String hashed, StringBuilder contains) {
         try {
             String newFile = hashed;
             PrintWriter pw = new PrintWriter("./objects/" + newFile);
@@ -41,6 +42,7 @@ public class Blob {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return hashed;
     }
 
     public static String hashStringToSHA1(String input) {
@@ -62,5 +64,10 @@ public class Blob {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public String getSha ()
+    {
+        return sha;
     }
 }
